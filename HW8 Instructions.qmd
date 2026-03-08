@@ -1,0 +1,135 @@
+---
+title: "Homework: First Steps with GitHub in RStudio"
+author: "Instructions"
+format: html
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Overview
+
+In this assignment you will learn how to connect **RStudio**, **Git**, and **GitHub** while working inside a **Quarto project**.
+These tools form the foundation of a modern data science workflow.
+You will create a small Quarto project, track your work using Git commits, and publish the project to GitHub.
+The goal of this assignment is to practice the **workflow**, not to perform complex analysis.
+
+## 1) Connect GitHub and RStudio
+
+You should confirm that Git is enabled in RStudio.
+See the handout on **Linking GitHub with RStudio**.
+
+## 2) Clone the Repo
+
+
+
+Go to GitHub and create a new repository.
+
+Use the exact repository name:
+
+Add a short description such as:
+
+> My first GitHub project using RStudio and Quarto.
+
+Set the repository to **Public**.
+
+------------------------------------------------------------------------
+
+## 2) Create the RStudio Project
+
+Open **RStudio** and create a project connected to GitHub.
+
+Steps:
+
+1.  File → New Project
+2.  Version Control
+3.  Git
+4.  Paste the repository URL from GitHub
+5.  Choose a location on your computer
+
+Your project should now contain a **Git tab** in RStudio.
+
+------------------------------------------------------------------------
+
+## 3) Create Your Quarto Document
+
+Create a file called:
+
+Your document must include the following sections.
+
+### Introduction
+
+Write **1–2 paragraphs** explaining the purpose of the assignment and what you are learning.
+
+### Data Summary
+
+Use R code to summarize a built-in dataset such as:
+
+-   `mtcars`
+-   `iris`
+-   `ToothGrowth`
+
+Example:
+
+```{r}
+summary(mtcars)
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(
+    title = "Miles per Gallon vs Weight",
+    x = "Weight",
+    y = "Miles per Gallon"
+  )
+```
+
+Write at least 150 words answering the following:
+
+What was easiest about using GitHub in RStudio?
+
+What was confusing or difficult?
+
+Why might Git be useful for data science projects?
+
+## 4) Render the Document
+
+Your project folder should now contain an HTML file.
+
+Confirm that the document renders without errors.
+
+## 5) Commit Your Work
+
+You must make at least three commits during this assignment.
+
+Each commit should represent a meaningful step.
+
+Example commit sequence:
+
+Write clear commit messages describing what changed.
+
+## 6) Push to GitHub
+
+Push your commits to GitHub from RStudio.
+
+After pushing, check your repository online.
+
+Your repository should contain:
+
+index.qmd
+
+rendered HTML file
+
+commit history
+
+## 7) Submit
+
+Submit the URL of your GitHub repository.
+
+Example format:
+
+https://github.com/username/github-first-steps

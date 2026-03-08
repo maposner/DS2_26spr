@@ -1,0 +1,80 @@
+---
+title: "Linking GitHub and RStudio"
+author: "Michael A. Posner"
+format: html
+---
+
+Link RStudio to your GitHub account by doing the following.
+These steps follow the guidelines of [HappyGitWithR](https://happygitwithr.com/) (with matching section numbers).
+I suggest using the [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) package, which automatically runs the commands that you need behind the scenes to complete the installation You will need to install the `usethis` package before you can use it (obviously).
+I have added some comments to each section to help out with the process.
+
+4.  Create an account on [GitHub](https://github.com/).
+
+5.  Skip this step on installing/upgrading R and RStudio.
+
+6.  Install Git, either [Git for Windows](https://git-for-windows.github.io/) or [Git for macOS](https://github.com/timcharper/git_osx_installer).
+
+7.  Run the following command, with your name and email instead of Jane Doe’s:
+
+    `use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")`
+
+    and set the default branch name to “main”, using `usethis::git_default_branch_configure(name = “main”)`
+
+8.  Skip this step on installing a Git client.
+
+9.  I recommend the HTTPS method.
+    Run the following code: `usethis::create_github_token()` which should bring up a website.
+    Enter your password and click “Generate token”.
+    Copy that token and go back to RStudio.
+    Enter
+
+    `gitcreds::gitcreds_set()`
+
+    and give it the token.
+    You might have to switch to the console to see the messages.
+
+10. Skip this step, unless you choose SSH over HTTPS (in which case skip #9 above instead)
+
+11. You can skip this step on connecting to GitHub.
+
+12. Connect RStudio and Git/GitHub.
+
+    a.  Make your first repo on GitHub (section 12.2).
+        Go to [https://github.com/](https://github.com/https://github.com/) and log in (if necessary).
+        Click the “New” button near “Repositories” and fill this in, as follows:
+
+        -   Repository template: No template.
+        -   Repository name: *myrepo* or whatever you wish (we’ll delete this soon).
+        -   Description: Enter something (it will appear in the README).
+        -   Public (or make it private and invite me)
+        -   Initialize this repository with: Add a README file.
+
+    b.  Click the big green button that says “Create repository” and the big green button that says “\<\> Code”.
+        If you are using HTTPS, the URL should be in the form:
+
+        *https://github.com/username/reponame.git*
+
+        Click on the copy button to the right of the URL to copy the repo URL
+
+    c.  Clone the repo (section 12.3).
+        Again, I recommend the `usethis` package (from step 15)
+
+        `usethis::create_from_github("PASTE YOUR REPO NAME HERE", destdir = "~/path/to/where/you/want/the/local/repo/")`
+
+        if it doesn’t open automatically, find your project and open it using RStudio.
+
+    d.  Test that you can make local changes, save, and commit (section 12.4) by doing the following:
+
+        -   Find the “*Files*” and “*Git*” panes. If you can keep them both open at the same time, then do it. If not, you will have to toggle between them. Make sure the Files pane is open to the directory location that you specified above.
+        -   Click on the *README.md* file in the Files folder to open it up.
+        -   Add a line with something like “Test from RStudio”.
+        -   Save the *README.md* file. You should then see it appear in the Git pane.
+        -   Commit the changes by doing the following:
+            -   click on the “Staged” box next to the README.md file
+            -   click “Commit”
+            -   Select the file and see the changes that you made
+            -   Click “Commit” then “close”
+            -   Go to your account on *GitHub* and look at your *README.md* file. Refresh the page. It didn’t change! Why not? You have to push your change to the repo.
+            -   Go back to *RStudio* and click on “Push” (in the Git pane)
+            -   Now go back to your *GitHub* page and click refresh. Voila!
