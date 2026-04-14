@@ -13,7 +13,7 @@ library(shiny)
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data - test change"),
+    titlePanel("Old Faithful Geyser Data - test this change"),
 
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
